@@ -3,6 +3,7 @@ import json
 import threading
 import time
 import random
+
 #deal with config.json
 
 with open("config.json") as file:
@@ -18,6 +19,8 @@ endpoint = requests.get("https://www.xosoftware.app/github/instaturbo/endpoint")
 
 
 def turbo(nam):
+
+    #login to instagram, create a session and get a csrf for later
     s = requests.session()
 
     print(f"[{nam}] Logging Into {username}...")
@@ -57,6 +60,7 @@ def turbo(nam):
         csrf = r2.cookies.get_dict()['csrftoken']
         print(f'[{nam}] Logged In Initiating Turbo...')
     turboin = True
+    #start monitoring the username
     while turboin == True:
         res = requests.get(endpoint.replace("<username>", nam))
         if res.status_code == 404:
@@ -86,7 +90,7 @@ def turbo(nam):
                 'external_url':'https://www.xodev.io',
                 'chaining_enabled': 'on'
             }
-
+            #change the acc to the turbo name
             rf = s.post(urlf, headers=hf, data=df)
             print(f'[{nam}] Completed Turbo Killing Thread')
             turboin = False
