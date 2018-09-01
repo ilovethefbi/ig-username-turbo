@@ -1,0 +1,10 @@
+{
+  "username":"your instagram username",
+  "password":"password",
+  "targetUsernames":[
+    "firstname you want to turbo",
+    "second name you want to turbo",
+    "third name you want to turbo",
+    "this supports infinite names!"
+  ]
+}
